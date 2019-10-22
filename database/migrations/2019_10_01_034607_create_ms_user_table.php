@@ -18,15 +18,15 @@ class CreateMsUserTable extends Migration
             $table->string('name');
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('role');
+            $table->enum('role', ['user', 'admin'])->default('user');
             $table->string('email')->unique();
-            $table->boolean('verified')->default(0);
+            $table->boolean('verified')->default(false);
             $table->rememberToken();
             $table->unsignedBigInteger('department_id');
             $table->foreign('department_id')
             ->references('department_id')->on('ms_department')
             ->onDelete('cascade')->onUpdate('cascade');
-            $table->boolean('is_active')->default(0);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
