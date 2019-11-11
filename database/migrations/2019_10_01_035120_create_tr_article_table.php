@@ -27,7 +27,7 @@ class CreateTrArticleTable extends Migration
         $table->foreign('request_id')
                 ->references('request_id')->on('tr_request')
                 ->onDelete('cascade')->onUpdate('cascade');        
-        $table->boolean('is_active');
+        $table->boolean('is_active')->default(true);
         $table->timestamps();
         $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')

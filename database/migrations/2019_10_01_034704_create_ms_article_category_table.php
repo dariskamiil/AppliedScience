@@ -18,7 +18,7 @@ class CreateMsArticleCategoryTable extends Migration
             $table->bigIncrements('article_category_id');
             $table->string('article_category_name');
             
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->unsignedBigInteger('created_by');
                 $table->foreign('created_by')

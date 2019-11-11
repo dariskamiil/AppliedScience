@@ -25,7 +25,7 @@ class CreateTrRequestTable extends Migration
         // $table->foreign('author')
         //     ->references('id')->on('ms_user')->onDelete('cascade')->onUpdate('cascade');
         
-        $table->boolean('is_active');
+        $table->boolean('is_active')->default(true);
         $table->timestamps();
         $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')

@@ -18,7 +18,7 @@ class CreateMsTagsTable extends Migration
             $table->string('tags_name');
             $table->bigIncrements('tags_id');
             
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->unsignedBigInteger('created_by');
                 $table->foreign('created_by')

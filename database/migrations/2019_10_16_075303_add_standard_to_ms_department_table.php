@@ -14,7 +14,7 @@ class AddStandardToMsDepartmentTable extends Migration
     public function up()
     {
         Schema::table('ms_department', function (Blueprint $table) {
-            $table->boolean('is_active')->after('department_name');
+            $table->boolean('is_active')->default(true)->after('department_name');
             $table->timestamps();
             $table->unsignedBigInteger('created_by');
                 $table->foreign('created_by')

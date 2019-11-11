@@ -20,7 +20,7 @@ class CreateMsUserTable extends Migration
             $table->string('password');
             $table->enum('role', ['user', 'admin'])->default('user');
             $table->string('email')->unique();
-            $table->boolean('verified')->default(false);
+            $table->boolean('approved')->default(false);
             $table->rememberToken();
             $table->unsignedBigInteger('department_id');
             $table->foreign('department_id')
