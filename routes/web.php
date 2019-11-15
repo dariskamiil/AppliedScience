@@ -12,9 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', function () {
+    return view('auth.profile');
+});
+
+Route::get('/category', function () {
+    return view('category.index');
+});
+Route::resource('/department', 'DepartmentController')->except([
+    'show'
+]);

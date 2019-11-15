@@ -1,32 +1,77 @@
 <?php
 
-namespace App;
+namespace App\Http\Controllers\Auth;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\ms_user;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
-class ms_user extends Authenticatable
+class RegisterController extends Controller
 {
-    use Notifiable;
+    /*
+    |--------------------------------------------------------------------------
+    | Register Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users as well as their
+    | validation and creation. By default this controller uses a trait to
+    | provide this functionality without requiring any additional code.
+    |
+    */
+
+    use RegistersUsers;
 
     /**
-     * The attributes that are mass assignable.
+     * Where to redirect users after registration.
      *
-     * @var array
+     * @var string
      */
-
-    protected $table = 'ms_user';
-
-    protected $fillable = [
-        'name', 'email', 'password','username','role',
-    ];
+    protected $redirectTo = '/home';
 
     /**
-     * The attributes that should be hidden for arrays.
+     * Create a new controller instance.
      *
-     * @var array
+     * @return void
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
+            'role' => 'required|in:user,admin',
+            'department_id' => 'required',
+            'email' => 'required|string|email|max:255|unique:ms_user',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function create(array $data)
+    {
+        return ms_user::create([
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'role' => $data['role'],
+            'email' => $data['email'],
+            'department_id' => $data['department_id'],
+            'password' => bcrypt($data['password'])
+        ]);
+    }
 }

@@ -33,10 +33,10 @@
                       </div>
                     </div>
                   </div>
-                  <div class="profile-widget-description">  
+                  <div class="profile-widget-description">
+                    <div class="profile-widget-name"><h3>{{ Auth::user()->name }}</h3></div>
                     
-                    <div class="profile-widget-name">{{ Auth::user()->name }} </div>
-                    <div class="text-muted d-inline font-weight-normal">{{ Auth::user()->role }}</div>
+                    <h4>{{ ucfirst(Auth::user()->role) }}</h4>
                   </div>
                   <div class="card-footer text-center">
                     <div class="text-muted d-inline font-weight-normal">Footer</div>
@@ -53,7 +53,7 @@
                     <div class="card-body">
                         
                           <div class="form-group">
-                            <label>Name</label>
+                            <label class="control-label">Name</label>
                             <input type="text" class="form-control" value="" required="">
                             <div class="invalid-feedback">
                               Please fill in the first name
@@ -61,20 +61,27 @@
                           </div>
 
                           <div class="form-group">
-                            <label>Email</label>
+                            <label class="control-label">Username</label>
+                            <input type="text" class="form-control" value="" required="">
+                            <div class="invalid-feedback">
+                              Please fill in the first name
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="control-label">Email</label>
                             <input type="email" class="form-control" value="" required="">
                             <div class="invalid-feedback">
                               Please fill in the email
                             </div>
                           </div>
                           
-                          name
-                          username
-                          role
-                          email
-                          department
-                          password
-
+                          <div class="form-group">
+                            <label class="control-label"> Department </label>
+                            <select name="department_id" id="department_id" required class="form-control">
+                              <option value=""></option>
+                            </select>   
+                          </div>
                     </div>
                     <div class="card-footer text-right">
                       <button class="btn btn-primary">Save Changes</button>
