@@ -87,9 +87,9 @@
               </div>
             </form>
       <!-- batas-->
-      <br><br>
+      <br>
             <div class="text-center mt-5 text-small">
-              Copyright &copy; Your Company. Made with 💙 by 
+              Copyright &copy; Your Company
             </div>
           </div>
         </div>

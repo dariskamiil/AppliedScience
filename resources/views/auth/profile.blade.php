@@ -1,4 +1,4 @@
-@extends('Dashboard.admin')
+  @extends('dashboard.admin')
 
 @section('title')
 <title>Profile</title>

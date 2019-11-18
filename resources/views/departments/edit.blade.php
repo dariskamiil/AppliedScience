@@ -28,23 +28,22 @@
       </div>
       <div class="form-group card-body">
         <div class="form-group">
-        <form method="post" action="{{ route('department.index') }}">
+        <form method="post" action="{{ route('department.update', $departments->department_id) }}">
           {{ csrf_field() }}
        
           <div class="form-group">
-            <label for="department_id">Old Department Name</label>
-            @foreach ($departments as $deps)
+            <label for="id_department">Old Department Name</label>            
             <input id="id_department" type="text" name="name_department" required disabled
             value="{{ $departments->department_name }}"
-            class="form-control {{ $errors->has('department_name') ? 'is-invalid':'' }}">
-            @endforeach
+            class="form-control">            
           </div>
         
           <div class="form-group">
-                <label for="department_id">New Department Name</label>
-                <input id="department_id" type="text" name="department_name" 
-                class="form-control {{ $errors->has('department_name') ? 'is-invalid':'' }}"required autofocus>
+            <label for="department_id">New Department Name</label>
+            <input id="department_id" type="text" name="department_name" 
+            class="form-control {{ $errors->has('department_name') ? 'is-invalid':'' }}"required autofocus>
           </div>
+
           <div class="form-group float-right col-2">
             <button type="submit" class="btn btn-success btn-lg btn-block "> Save </button>
           </div>

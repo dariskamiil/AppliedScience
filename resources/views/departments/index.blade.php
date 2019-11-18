@@ -26,7 +26,7 @@
                     <form class="form-inline">
                     <ul class="nav nav-pills">
                       <li class="nav-item">
-                        <a class="nav-link active" href="#">All <span class="badge badge-white">{{ $all_count }}</span></a>
+                        <a class="nav-link active" href="{{ route('department.index') }}">All <span class="badge badge-white"></span></a>
                       </li>
                     </ul>
                     </form>
@@ -47,7 +47,7 @@
                         <input type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append ">
                         &nbsp;
-                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-infp"><i class="fas fa-search"></i></button>
                         </div>
                       </div>
                     </form>
@@ -61,13 +61,21 @@
                       <table class="table table-hover">
                         <thead>
                         <th class="">#</th>
-                          <th class="col-8">Name</th>
+                          <th class="col-4">Name</th>
+                          <th class="col-4">Status</th>
                           <th class="col-3">Action</th>
                         </thead>
                     @foreach ($departments as $deps)
                         <tr>
                         <td>{{ ++$no }}</td>
                           <td>{{ $deps->department_name }}</td>
+                          <td>
+                            @if ( $deps->is_active == 1 )
+                              <div class="badge badge-primary">Actived</div>
+                            @else
+                              <div class="badge badge-danger">Inactived</div>
+                            @endif
+                          </td>
                           <td class="text-white -all">
                             <a href="{{ route('department.edit', $deps->department_id) }}" class="btn btn-icon icon-left col-5 btn-warning"> <i class="ion ion-md-create"></i>&nbsp;Edit</a> &nbsp;
                             <a href="#" class="btn btn-icon icon-left col-5 btn-danger"><i class="ion ion-ios-trash"></i>&nbsp;Delete</a>
