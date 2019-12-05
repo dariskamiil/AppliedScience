@@ -12,6 +12,9 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  
+  <!-- favicon -->
+  <link rel="shortcut icon" href="favicon.ico">
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css">
@@ -27,39 +30,36 @@
       <div class="d-flex flex-wrap align-items-stretch">
         <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
           <div class="p-4 m-3">
-            <img src="/img/stisla-fill.svg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
+            <img src="/img/lab-2.png" alt="logo" width="350">
+            <br><br>
             <p class="text-muted">Before you get started, you must login or register if you don't already have an account.</p>
         <!-- batas--> 
             <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
             {{ csrf_field() }}
 
-              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                <label for="email">Email</label>
-                <input id="email" type="email" class="form-control" name="email" tabindex="1" value="{{ old('email') }}" required autofocus>
-                @if ($errors->has('email'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
-                  </span>
-                @endif
-                <div class="invalid-feedback">
-                  Please fill in your email
+            <div class="form-group row">
+                <label for="email" class="col-md-3 col-form-label text-md-left">E-Mail</label>
+                <div class="col-md-12">
+                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="E-Mail Addres" tabindex="1">
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                 </div>
-              </div>
+            </div>
 
-              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <div class="d-block">
-                  <label for="password" class="control-label">Password</label>
+            <div class="form-group row">
+                <label for="password" class="col-md-3 col-form-label text-md-left"> Password </label>
+                <div class="col-md-12">
+                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old('email') }}" required autofocus placeholder="Password" tabindex="2">
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                 </div>
-                <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
-                @if ($errors->has('password'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
-                  </span>
-                @endif
-                <div class="invalid-feedback">
-                  please fill in your password
-                </div>
-              </div>
+            </div>
 
             <div class="row">
                 <div class="form-group col-7">

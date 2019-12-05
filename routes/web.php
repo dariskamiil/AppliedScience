@@ -28,3 +28,6 @@ Route::get('/category', function () {
 Route::resource('/department', 'DepartmentController')->except([
     'show'
 ]);
+Route::resource('/category', 'CategoryController')->except([
+    'show'
+]);
