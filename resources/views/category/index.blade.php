@@ -1,20 +1,16 @@
 @extends('Dashboard.admin')
 
 @section('title')
-<title>Article Category Master</title>
+<title>Category Master</title>
 @endsection
 
 @section('content')
 <section class="section">
           <div class="section-header">
-            <h1>Article Category Master</h1>
-            <div class="section-header-button">
-              <a href="#" class="btn btn-primary">Add New</a>
-            </div>
+            <h1>Category Master</h1>
             <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="/home">Home</a></div>
-              <div class="breadcrumb-item"><a href="#">Master</a></div>
-              <div class="breadcrumb-item">Article Category Master</div>
+              <div class="breadcrumb-item">Category Master</div>
             </div>
           </div>
           <div class="section-body">
@@ -27,21 +23,15 @@
               <div class="col-12">
                 <div class="card mb-0">
                   <div class="card-body">
+                    <form class="form-inline">
                     <ul class="nav nav-pills">
                       <li class="nav-item">
-                        <a class="nav-link active" href="#">All <span class="badge badge-white">5</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Draft <span class="badge badge-primary">1</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Pending <span class="badge badge-primary">1</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Trash <span class="badge badge-primary">0</span></a>
+                        <a class="nav-link active" href="{{ route('category.index') }}">All <span class="badge badge-white"></span></a>
                       </li>
                     </ul>
+                    </form>
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -49,132 +39,53 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4 class="col-9
-                    ">All Posts</h4>
-                    <form>
+                    <div class="col-8">
+                        <a href="/category/create" class="btn btn-info">Add New</a>
+                    </div>
+                    <form class="col-3">
                       <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append ">
                         &nbsp;
-                          <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-infp"><i class="fas fa-search"></i></button>
                         </div>
                       </div>
                     </form>
                   </div>
                     
                   <div class="card-body">
-                    <div class="float-right">
-                      
-                    </div>
-
                     <div class="clearfix mb-3"></div>
-
                     <div class="table-responsive">
+                    {{ csrf_field() }}
+                  
                       <table class="table table-hover">
                         <thead>
-                          <th>Title</th>
-                          <th>Category</th>
-                          <th>Author</th>
-                          <th>Created At</th>
-                          <th>Status</th>
+                        <th class="">#</th>
+                          <th class="col-4">Name</th>
+                          <th class="col-4">Status</th>
+                          <th class="col-3">Action</th>
                         </thead>
+                    @foreach ($categorys as $cats)
                         <tr>
-                         
-                          <td>Laravel 5 Tutorial: Introduction
-                            <div class="table-links">
-                              <a href="#">View</a>
-                              <div class="bullet"></div>
-                              <a href="#">Edit</a>
-                              <div class="bullet"></div>
-                              <a href="#" class="text-danger">Trash</a>
-                            </div>
-                          </td>
+                        <td>{{ ++$no }}</td>
+                          <td>{{ $cats->article_category_name }}</td>
                           <td>
-                            <a href="#">Web Developer</a>,
-                            <a href="#">Tutorial</a>
+                            @if ( $cats->is_active == 1 )
+                              <div class="badge badge-primary">Actived</div>
+                            @else
+                              <div class="badge badge-danger">Inactived</div>
+                            @endif
                           </td>
-                          <td>
-                            <a href="#">
-                              <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="title" title=""> <div class="d-inline-block ml-1">Rizal Fakhri</div>
-                            </a>
+                          <td class="text-white -all">
+                            <a href="{{ route('category.edit', $cats->article_category_id) }}" class="btn btn-icon icon-left col-5 btn-warning"> <i class="ion ion-md-create"></i>&nbsp;Edit</a> &nbsp;
+                            <a href="#" class="btn btn-icon icon-left col-5 btn-danger"><i class="ion ion-ios-trash"></i>&nbsp;Delete</a>
                           </td>
-                          <td>2018-01-20</td>
-                          <td><div class="badge badge-primary">Published</div></td>
                         </tr>
-                        <tr>
-                          <td>Laravel 5 Tutorial: Introduction
-                            <div class="table-links">
-                              <a href="#">View</a>
-                              <div class="bullet"></div>
-                              <a href="#">Edit</a>
-                              <div class="bullet"></div>
-                              <a href="#" class="text-danger">Trash</a>
-                            </div>
-                          </td>
-                          <td>
-                            <a href="#">Web Developer</a>,
-                            <a href="#">Tutorial</a>
-                          </td>
-                          <td>
-                            <a href="#">
-                              <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="title" title=""> <div class="d-inline-block ml-1">Rizal Fakhri</div>
-                            </a>
-                          </td>
-                          <td>2018-01-20</td>
-                          <td><div class="badge badge-primary">Published</div></td>
-                        </tr>
-                        <tr>
-                         
-                          <td>Laravel 5 Tutorial: Introduction
-                            <div class="table-links">
-                              <a href="#">View</a>
-                              <div class="bullet"></div>
-                              <a href="#">Edit</a>
-                              <div class="bullet"></div>
-                              <a href="#" class="text-danger">Trash</a>
-                            </div>
-                          </td>
-                          <td>
-                            <a href="#">Web Developer</a>,
-                            <a href="#">Tutorial</a>
-                          </td>
-                          <td>
-                            <a href="#">
-                              <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="title" title=""> <div class="d-inline-block ml-1">Rizal Fakhri</div>
-                            </a>
-                          </td>
-                          <td>2018-01-20</td>
-                          <td><div class="badge badge-primary">Published</div></td>
-                        </tr>
-                       
+                    @endforeach
                       </table>
-                    </div>
-                    <div class="float-right">
-                      <nav>
-                        <ul class="pagination">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                          </li>
-                          <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
+                      <div class="float-right">
+                        {{ $categorys->links() }}
+                      </div>
                     </div>
                   </div>
                 </div>

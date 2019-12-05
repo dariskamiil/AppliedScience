@@ -13,9 +13,9 @@ class DepartmentController extends Controller
         //$active_count = department::where('is_active','1')->get()->count();
         //$inactive_count = department::where('is_active','0')->get()->count();
         $all_count = department::where('is_active','1')->get()->count();
-        $departments = department::where('is_active','1')->paginate(5);
+        $departments = department::paginate(15);
         return view('departments.index', compact('departments', 'all_count'))
-        ->with('no',($request->input('page', 1)-1)*5);
+        ->with('no',($request->input('page', 1)-1)*15);
         return view('departments.index', compact('inactive_count', 'active_count'));
         
     }
@@ -35,5 +35,17 @@ class DepartmentController extends Controller
     {
         $departments = department::findOrFail($department_id);
         return view('departments.edit', compact('departments'));
+    }
+    public function update(Request $request, $department_id)
+    {
+        request()->validate([
+            'department_name' => 'required|string',
+        ]);
+        $departments = department::findOrFail($department_id);
+        $departments->update([
+            'department_name' => $request->department_name,
+        ]);
+        return redirect(route('department.index'));
+        
     }
 }
