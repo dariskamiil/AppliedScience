@@ -123,7 +123,7 @@
             </div>
             
             <div class="simple-footer">
-              Copyright &copy;  2018
+              Copyright &copy; Dapur Digital <div class="bullet"></div> 2019
             </div>
 
           </div>

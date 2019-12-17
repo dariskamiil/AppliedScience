@@ -89,7 +89,7 @@
       <!-- batas-->
       <br>
             <div class="text-center mt-5 text-small">
-              Copyright &copy; Your Company
+              Copyright &copy; Dapur Digital <div class="bullet"></div> 2019
             </div>
           </div>
         </div>
