@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title> Home </title>
+  @yield('title')
 
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -27,7 +27,7 @@
     <div class="main-wrapper container">
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
-        <a href="index.html" class="navbar-brand sidebar-gone-hide">Stisla</a>
+        <a href="#" class="navbar-brand sidebar-gone-hide"><img src="/img/logo-aas.png" alt="logo" width="100"></a>
         <div class="navbar-nav">
           <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
         </div>
@@ -113,11 +113,11 @@
       <nav class="navbar navbar-secondary navbar-expand-lg">
         <div class="container">
           <ul class="navbar-nav col-6">
-            <li class="nav-item active">
-              <a href="#" data-toggle="dropdown" class="nav-link"><i class="ion ion-ios-home"></i><span>Home</span></a>
+            <li class="nav-item">
+              <a href="#" class="nav-link"><i class="ion ion-ios-home"></i><span>Home</span></a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link"><i class="far ion-ios-create"></i><span> Request Article </span></a>
+              <a href="/request/create" class="nav-link"><i class="far ion-ios-create"></i><span>Request Article</span></a>
             </li>
           </ul>
         </div>

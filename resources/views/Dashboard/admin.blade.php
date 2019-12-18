@@ -77,26 +77,6 @@
                   <a href="#">Mark All As Read</a>
                 </div>
               </div>
-              <div class="dropdown-list-content dropdown-list-icons">
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-danger text-white">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    Low disk space. Let's clean it!
-                    <div class="time">17 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-info text-white">
-                    <i class="fas fa-bell"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    Welcome to Stisla template!
-                    <div class="time">Yesterday</div>
-                  </div>
-                </a>
-              </div>
               <div class="dropdown-footer text-center">
                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
               </div>
@@ -133,23 +113,28 @@
       </nav>
 <!-- Sidebar -->
       <div class="main-sidebar">
+        
         <aside id="sidebar-wrapper">
+          <br>
           <div class="sidebar-brand">
-            <a href="index.html"></a>
+            <a href="#"><img src="/img/lab-2.png" alt="logo" width="200"></a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html"></a>
-          </div>
+            <a href="#"><img src="/img/logo-aas.png" alt="logo" width="45"></a>
+          </div>      
+
           <ul class="sidebar-menu">
+            <br>  
               <li class="menu-header">Menu Header</li>
-              
-              
               <li class="nav-item dropdown">
-                <a href="\home" class="nav-link"><i class="ion ion-ios-home"></i><span>Home</span></a>
-                
+                <a href="\home" class="nav-link"><i class="ion ion-ios-home"></i><span>Home</span></a>                
               </li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="ion ion-md-add-circle"></i><span>Create Articles</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="ion ion-md-add-circle"></i><span>Create Articles</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="#">Initiative </a></li>
+                  <li><a class="nav-link" href="#">By a request</a></li>
+                </ul>
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link"><i class="ion ion-ios-stats"></i><span>Articles Matrix</span></a>
@@ -158,7 +143,7 @@
                 <a href="#" class="nav-link"><i class="ion ion-ios-podium"></i><span>Work Progress</span></a>
               </li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="ion ion-md-people"></i><span>Account Management</span></a>
+                <a href="/account" class="nav-link"><i class="ion ion-md-people"></i><span>Account Management</span></a>
               </li>
 
               <li class="nav-item dropdown">

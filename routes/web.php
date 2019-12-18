@@ -31,3 +31,9 @@ Route::resource('/department', 'DepartmentController')->except([
 Route::resource('/category', 'CategoryController')->except([
     'show'
 ]);
+Route::resource('/account', 'AccountController')->except([
+    'show'
+]);
+Route::resource('/request', 'RequestController')->except([
+    'show'
+]);
