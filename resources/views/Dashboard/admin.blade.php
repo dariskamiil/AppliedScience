@@ -10,14 +10,15 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+  
   <!-- CSS Libraries -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('/css/app.css')}}">
   <link rel="stylesheet" href="{{asset('/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('/css/components.css')}}">
-  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -192,7 +193,8 @@
   <script src="/js/custom.js"></script>
 
   <!-- ION Icons -->
-  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> 
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
   <!-- Page Specific JS File -->
 </body>

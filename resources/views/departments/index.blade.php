@@ -14,27 +14,24 @@
             </div>
           </div>
           <div class="section-body">
-            <h2 class="section-title">Posts</h2>
-            <p class="section-lead">
-              You can manage all posts, such as editing, deleting and more.
-            </p>
-
             <div class="row">
               <div class="col-12">
                 <div class="card mb-0">
                   <div class="card-body">
                     <form class="form-inline">
-                    <ul class="nav nav-pills">
-                      <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('department.index') }}">All <span class="badge badge-white"></span></a>
-                      </li>
-                    </ul>
+                      <ul class="nav nav-pills">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="{{ route('department.index') }}">
+                          All <span class="badge badge-white"></span></a>
+                        </li>
+                      </ul>
                     </form>
                   </div>
-                  
                 </div>
               </div>
-            </div>
+             </div>
+          </div>
+
             <div class="row mt-4">
               <div class="col-12">
                 <div class="card">
@@ -61,9 +58,10 @@
                       <table class="table table-hover">
                         <thead>
                         <th class="">#</th>
-                          <th class="col-4">Name</th>
-                          <th class="col-4">Status</th>
-                          <th class="col-3">Action</th>
+                          <th>Name</th>
+                          <th>Status</th>
+                          <th>Last update</th>
+                          <th>Action</th>
                         </thead>
                     @foreach ($departments as $deps)
                         <tr>
@@ -75,6 +73,9 @@
                             @else
                               <div class="badge badge-danger">Inactived</div>
                             @endif
+                          </td>
+                          <td>
+                            {{ $deps->updated_at->format('d M Y') }}
                           </td>
                           <td class="text-white -all">
                             <a href="{{ route('department.edit', $deps->department_id) }}" class="btn btn-icon icon-left col-5 btn-warning"> <i class="ion ion-md-create"></i>&nbsp;Edit</a> &nbsp;

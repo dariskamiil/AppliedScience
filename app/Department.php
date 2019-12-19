@@ -19,7 +19,7 @@ class Department extends Model
      * Variable yang mendaftarkan atribut yang bisa di isi.
      * @var array
      */
-    protected $fillable = ['department_name'];
+    protected $fillable = ['department_name','is_active'];
     /**
      * Variable yang menentukan nama relasi table.
      */

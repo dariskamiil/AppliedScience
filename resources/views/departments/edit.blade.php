@@ -17,33 +17,71 @@
   </div>
 
   <div class="section-body">
-    <h2 class="section-title ">Edit Department</h2>
-    <p class="section-lead">
-      On this page you can edit a department
-    </p>
-
+    
     <div class="card">
       <div class="card-header bg-warning"> 
         <h4 class="text-white">Edit Department - {{ $departments->department_name }}</h4>
       </div>
       <div class="form-group card-body">
-        <div class="form-group">
-        
+        <div class="form-group">  
         <form method="post" action="{{ route('department.update', $departments->department_id) }}">
           {{ csrf_field() }}
           {{ method_field('PATCH') }}
-
           <div class="form-group">
-            <label for="department_id">New Department Name </label>
-            <input id="department_id" type="text" name="department_name"  value="{{ $departments->department_name }}"
-            class="form-control {{ $errors->has('department_name') ? 'is-invalid':'' }}"required autofocus>
-          </div>
-
-          <div class="form-group float-right col-2">
+            <div class="row">
+              <div class="col-2">
+                <label for="department_id">Name </label>
+                <input id="department_id" type="text" name="department_name"  value="{{ $departments->department_name }}"
+                class="form-control {{ $errors->has('department_name') ? 'is-invalid':'' }}"required autofocus>
+              </div>
+              <div class="col-3">
+                <label>Status</label>
+                  @if ( $departments->is_active == 1 )
+                  <div class="radio">
+                    <label class="radio-inline">
+                      <input type="radio" name="status" value="1" checked><div class="badge badge-primary">Actived</div>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="status" value="0"><div class="badge badge-danger">Inactived</div>
+                    </label>
+                  </div>
+                  @elseif( $departments->is_active == 0 )
+                  <div class="radio">
+                    <label class="radio-inline">
+                      <input type="radio" name="status" value="1"><div class="badge badge-primary">Actived</div>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="status" value="0" checked><div class="badge badge-danger">Inactived</div>
+                    </label>
+                  </div>
+                  @endif
+                </div>
+              </div>
+          <br>
+          <div class="float-right col-2">
             <button type="submit" class="btn btn-success btn-lg btn-block "> Save </button>
           </div>
-         
+        </div>
+      </div>
         </form>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="form-group card-body">
+        <div class="row">
+          <div class="col-3">
+            <p>Created by <br> {{ $departments->created_by }}</p>
+          </div>
+          <div class="col-3">
+            <p>Created at <br> {{ $departments->created_at->format('D, d M Y') }} <br> on &nbsp{{ $departments->created_at->format('H:i:s') }}</p>
+          </div>
+          <div class="col-3">
+            <p>Updated by<br> {{ $departments->updated_by }}</p>
+          </div>
+          <div class="col-3">
+            <p>Last update <br> {{ $departments->updated_at->format('D, d M Y') }} <br> on &nbsp{{ $departments->updated_at->format('H:i:s') }}</p>
+          </div>
         </div>
       </div>
     </div>
