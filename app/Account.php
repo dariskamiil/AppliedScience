@@ -19,5 +19,5 @@ class Account extends Model
      * Variable yang mendaftarkan atribut yang bisa di isi.
      * @var array
      */
-    protected $fillable = ['approved', 'role', 'name'];    
+    protected $fillable = ['approved', 'role', 'name', 'email' , 'username'];    
 }   

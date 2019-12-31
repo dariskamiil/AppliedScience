@@ -25,10 +25,15 @@ class AccountController extends Controller
     {
         request()->validate([
             'name' => 'required|string',
+            'role' => 'required|in:user,admin',
         ]);
         $accounts = account::findOrFail($id);
         $accounts->update([
             'name' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'role' => $request->role,
+            'approved' => $request->approved,
         ]);
         return redirect(route('account.index'));   
     }

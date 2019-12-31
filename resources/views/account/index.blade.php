@@ -59,7 +59,7 @@
                       <table class="table table-hover">
                         <thead>
                           <th >#</th>
-                          <th >Name</th>
+                          <th class="col-4" >Name</th>
                           <th >Role</th>
                           <th >Approval</th>
                           <th >Action</th>

@@ -17,48 +17,104 @@
   </div>
 
   <div class="section-body">
-    
     <div class="card">
       <div class="card-header bg-warning"> 
         <h4 class="text-white">Edit </h4>
       </div>
       <div class="form-group card-body">
         <div class="form-group">
-        
         <form method="post" action="{{ route('account.update', $accounts->id) }}">
           {{ csrf_field() }}
           {{ method_field('PATCH') }}
-
-          
-            <label>Name</label>
-            <input id="id" type="text" name="name"  value="{{ $accounts->name }}"
-            class="form-control {{ $errors->has('name') ? 'is-invalid':'' }}"required autofocus>
+        <div class="row">
+            <div class="col-3" >
+              <label for="name" >Name</label>
+              <input id="name" type="text" name="name"  value="{{ $accounts->name }}"
+              class="form-control {{ $errors->has('name') ? 'is-invalid':'' }}"required autofocus>
+            </div>
+            <div class="col-3" >
+              <label for="username">Username</label>
+              <input id="username" type="text" name="username"  value="{{ $accounts->username }}"
+              class="form-control {{ $errors->has('username') ? 'is-invalid':'' }}"required autofocus>
+            </div>
+            <div class="col-6" >
+              <label for="email">Email</label>
+              <input id="email" type="text" name="email"  value="{{ $accounts->email }}"
+              class="form-control {{ $errors->has('email') ? 'is-invalid':'' }}"required autofocus>
+            </div>
+          </div>    
         <br>
-            <label> Department </label>
-            <div class="selectric-wrapper selectric-form-control selectric-selectric selectric-below"><div class="selectric-hide-select">
-              <select class="form-control selectric">
+        <div class="row" >
+          <div class="col-3" >
+            <label for="department" > Department </label>
+              <select class="form-control selectric" name="department" id="department">
+                <option value=""></option>
               </select>
-            </div>            
-        <br>
-        <label> Role  </label>
-        <div class="selectric-wrapper selectric-form-control selectric-selectric selectric-below"><div class="selectric-hide-select">
-          <select class="form-control selectric" name="role">
-            <option value=""></option>
-          </select>
-        </div>    
-        <br>
-            <label>Approval</label>
-            <input id="id" type="text" name="name" class="form-control">
+          </div>
+          <div class="col-3" >
+            <label for="role"> Role  </label>        
+            <select class="form-control selectric" id="role" name="role">
+              @if ( $accounts->role == 'admin' )
+                <option value="user">User</option>
+                <option value="admin" selected>Admin</option>
+              @elseif ( $accounts->role == 'user' )
+                <option value="user" selected>User</option>
+                <option value="admin">Admin</option>
+              @endif
+            </select>
+          </div>
+        </div>
+                  <br>
+        <label>Approval</label>
+          @if ( $accounts->approved == 1 )
+          <div class="radio">
+            <label class="radio-inline">
+              <input type="radio" name="approved" value="1" checked><div class="badge badge-primary">Approved</div>
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="approved" value="0"><div class="badge badge-danger">Not-approved</div>
+            </label>
+          </div>
+          @elseif( $accounts->approved == 0 )
+          <div class="radio">
+            <label class="radio-inline">
+              <input type="radio" name="approved" value="1"><div class="badge badge-primary">Approved</div>
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="approved" value="0" checked><div class="badge badge-danger">Not-approved</div>
+            </label>
+          </div>
+          @endif
+      </div>
         <br>
           <div class="form-group float-right col-2">
             <button type="submit" class="btn btn-success btn-lg btn-block "> Save </button>
           </div>
         </div>
-         
+
         </form>
         </div>
       </div>
+      <div class="card">
+        <div class="form-group card-body">
+          <div class="row">
+            <div class="col-3">
+              <p>Created by <br> {{ $accounts->created_by }}</p>
+            </div>
+            <div class="col-3">
+              <p>Created at <br> {{ $accounts->created_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->created_at->format('H:i:s') }}</p>
+            </div>
+            <div class="col-3">
+              <p>Updated by<br> {{ $accounts->updated_by }}</p>
+            </div>
+            <div class="col-3">
+              <p>Last update <br> {{ $accounts->updated_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->updated_at->format('H:i:s') }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
   </div>
 </section>
 @stop

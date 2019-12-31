@@ -28,6 +28,10 @@ class CreateMsUserTable extends Migration
             ->onDelete('cascade')->onUpdate('cascade');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->unsignedBigInteger('updated_by')->nullable();
+                $table->foreign('updated_by')
+                  ->references('id')->on('ms_user')
+                  ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
