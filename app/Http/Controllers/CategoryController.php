@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -26,6 +27,12 @@ class CategoryController extends Controller
         ]);
         $categorys = category::create($request->all());
         return redirect(route('category.index'));
+        $categorys = category::create([
+            'article_category_name' => $request->article_category_name,
+            'created_by' => Auth::user()->id,
+            'updated_by' => Auth::user()->id,
+        ]);
+        return redirect(route('department.index'));
     }
     public function edit($article_category_id)
     {

@@ -18,7 +18,7 @@ class ms_user extends Authenticatable
     protected $table = 'ms_user';
 
     protected $fillable = [
-        'name', 'email', 'password','username','role',
+        'name', 'email', 'password','username','role', 'department_id',
     ];
 
     /**
@@ -29,4 +29,5 @@ class ms_user extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
 }

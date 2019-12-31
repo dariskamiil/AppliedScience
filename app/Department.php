@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\ms_user;
+use App\user;
 use Illuminate\Database\Eloquent\Model;
 
 class Department extends Model
@@ -19,12 +19,26 @@ class Department extends Model
      * Variable yang mendaftarkan atribut yang bisa di isi.
      * @var array
      */
-    protected $fillable = ['department_name','is_active'];
+    protected $fillable = ['department_name','is_active','updated_by','created_by'];
     /**
-     * Variable yang menentukan nama relasi table.
+     * Relation to User Model;
+     * @var array
      */
+    
+    public function createdBy()
+    {
+        return $this->belongsTo(user::class, 'created_by');
+    }
+    public function updatedBy()
+    {
+        return $this->belongsTo(user::class, 'updated_by');
+    }
     public function user()
     {
-        return $this->hasMany(ms_user::class, 'id');
+        return $this->hasMany(user::class);
+    }
+    public function account()
+    {
+        return $this->hasMany(account::class);
     }
 }

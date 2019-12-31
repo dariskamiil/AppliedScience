@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class DepartmentController extends Controller
 {
@@ -23,7 +25,11 @@ class DepartmentController extends Controller
         request()->validate([
             'department_name' => 'required|string|max:3',
         ]);
-        $departments = Department::create($request->all());
+        $departments = Department::create([
+            'department_name' => $request->department_name,
+            'created_by' => Auth::user()->id,
+            'updated_by' => Auth::user()->id,
+        ]);
         return redirect(route('department.index'));
     }
     public function edit($department_id)
@@ -40,6 +46,20 @@ class DepartmentController extends Controller
         $departments->update([
             'department_name' => $request->department_name,
             'is_active' =>  $request->status,
+            'updated_by'=> Auth::user()->id,
+        ]);
+        return redirect(route('department.index'));
+        
+    }
+    public function delete(Request $request, $department_id)
+    {
+        request()->validate([
+            'is_active' => 1,
+        ]);
+        $departments = department::findOrFail($department_id);
+        $departments->update([
+            'is_active' =>  0,
+            'updated_by'=> Auth::user()->id,
         ]);
         return redirect(route('department.index'));
         

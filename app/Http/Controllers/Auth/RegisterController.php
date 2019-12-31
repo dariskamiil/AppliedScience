@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\ms_user;
+use App\department;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -49,7 +50,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255',
+            'username' => 'required|string|min:5|max:255|unique:ms_user',
             'role' => 'required|in:user,admin',
             'department_id' => 'required',
             'email' => 'required|string|email|max:255|unique:ms_user',

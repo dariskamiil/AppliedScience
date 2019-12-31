@@ -2,8 +2,9 @@
 
 namespace App;
 
-use App\ms_user;
+use App\user;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Account extends Model
 {
@@ -19,5 +20,13 @@ class Account extends Model
      * Variable yang mendaftarkan atribut yang bisa di isi.
      * @var array
      */
-    protected $fillable = ['approved', 'role', 'name', 'email' , 'username'];    
+    protected $fillable = ['approved', 'role', 'name', 'email' , 'username','department_id','updated_by',];    
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(user::class, 'department_id');
+    }
 }   

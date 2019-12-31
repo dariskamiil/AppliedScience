@@ -6,6 +6,7 @@ use App\Account;
 use App\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
@@ -33,7 +34,9 @@ class AccountController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'role' => $request->role,
+            'department_id' => $request->department_id,
             'approved' => $request->approved,
+            'updated_by'=> Auth::user()->id,
         ]);
         return redirect(route('account.index'));   
     }
