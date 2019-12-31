@@ -71,13 +71,13 @@
       <div class="form-group card-body">
         <div class="row">
           <div class="col-3">
-            <p>Created by <br> {{ $departments->created_by }}</p>
+            <p>Created by <br> {{ $departments->createdBy['name'] }}</p>
           </div>
           <div class="col-3">
             <p>Created at <br> {{ $departments->created_at->format('D, d M Y') }} <br> on &nbsp{{ $departments->created_at->format('H:i:s') }}</p>
           </div>
           <div class="col-3">
-            <p>Updated by<br> {{ $departments->updated_by }}</p>
+            <p>Updated by<br> {{ $departments->updatedBy['name'] }}</p>
           </div>
           <div class="col-3">
             <p>Last update <br> {{ $departments->updated_at->format('D, d M Y') }} <br> on &nbsp{{ $departments->updated_at->format('H:i:s') }}</p>

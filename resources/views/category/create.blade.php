@@ -6,7 +6,7 @@
 <section class="section">
   <div class="section-header">
     <div class="section-header-back">
-      <a href="/Category" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+      <a href="/category" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
     </div>
     <h1>New Category</h1>
     <div class="section-header-breadcrumb">

@@ -14,11 +14,6 @@
             </div>
           </div>
           <div class="section-body">
-            <h2 class="section-title">Posts</h2>
-            <p class="section-lead">
-              You can manage all posts, such as editing, deleting and more.
-            </p>
-
             <div class="row">
               <div class="col-12">
                 <div class="card mb-0">
@@ -58,11 +53,12 @@
                   
                       <table class="table table-hover">
                         <thead>
-                          <th >#</th>
-                          <th class="col-4" >Name</th>
-                          <th >Role</th>
-                          <th >Approval</th>
-                          <th >Action</th>
+                          <th class="col-1" >#</th>
+                          <th class="col-3" >Name</th>
+                          <th class="col-2">Role</th>
+                          <th class="col-1">Department</th>
+                          <th class="col-2">Approval</th>
+                          <th class="col-3">Action</th>
                           
                         </thead>
                     @foreach ($accounts as $accs)
@@ -70,6 +66,7 @@
                         <td>{{ ++$no }}</td>
                           <td>{{ $accs->name }}</td>
                           <td>{{ ucfirst($accs->role )}}</td>
+                          <td>{{ ucfirst($accs->department['department_name'] )}}</td>
                           <td>
                             @if ( $accs->approved == 1 )
                               <div class="badge badge-primary">Approved</div>
@@ -79,6 +76,7 @@
                           </td>
                           <td class="text-white -all">
                             <a href="{{ route('account.edit', $accs->id) }}" class="btn btn-icon icon-left col-5 btn-warning"> <i class="ion ion-md-create"></i>&nbsp;Edit</a> &nbsp;
+                            <a href="#" class="btn btn-icon icon-left col-5 btn-danger"><i class="ion ion-ios-trash"></i>&nbsp;Delete</a>
                           </td>
                         </tr>
                     @endforeach

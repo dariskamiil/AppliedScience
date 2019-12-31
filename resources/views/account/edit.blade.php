@@ -46,9 +46,12 @@
         <br>
         <div class="row" >
           <div class="col-3" >
-            <label for="department" > Department </label>
-              <select class="form-control selectric" name="department" id="department">
-                <option value=""></option>
+            <label for="department_id" > Department </label>
+              <select class="form-control selectric" name="department_id" id="department_id">
+                <option value="{{ $accounts->department['department_id'] }}">{{ $accounts->department['department_name'] }}</option>
+                @foreach ($departments as $deps)
+                  <option value="{{ $deps->department_id }}">{{ ucfirst($deps->department_name) }}</option>
+                @endforeach
               </select>
           </div>
           <div class="col-3" >
@@ -72,7 +75,7 @@
               <input type="radio" name="approved" value="1" checked><div class="badge badge-primary">Approved</div>
             </label>
             <label class="radio-inline">
-              <input type="radio" name="approved" value="0"><div class="badge badge-danger">Not-approved</div>
+              <input type="radio" name="approved" value="0"><div class="badge badge-danger">Unapproved</div>
             </label>
           </div>
           @elseif( $accounts->approved == 0 )
@@ -98,16 +101,13 @@
       <div class="card">
         <div class="form-group card-body">
           <div class="row">
-            <div class="col-3">
-              <p>Created by <br> {{ $accounts->created_by }}</p>
-            </div>
-            <div class="col-3">
+            <div class="col-4">
               <p>Created at <br> {{ $accounts->created_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->created_at->format('H:i:s') }}</p>
             </div>
-            <div class="col-3">
-              <p>Updated by<br> {{ $accounts->updated_by }}</p>
+            <div class="col-4">
+              <p>Updated by<br> {{ $accounts->user['name'] }}</p>
             </div>
-            <div class="col-3">
+            <div class="col-4">
               <p>Last update <br> {{ $accounts->updated_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->updated_at->format('H:i:s') }}</p>
             </div>
           </div>
