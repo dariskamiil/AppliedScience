@@ -78,7 +78,6 @@
                           </td>
                           <td class="text-white -all">
                             <a href="{{ route('category.edit', $cats->article_category_id) }}" class="btn btn-icon icon-left col-5 btn-warning"> <i class="ion ion-md-create"></i>&nbsp;Edit</a> &nbsp;
-                            <a href="#" class="btn btn-icon icon-left col-5 btn-danger"><i class="ion ion-ios-trash"></i>&nbsp;Delete</a>
                           </td>
                         </tr>
                     @endforeach

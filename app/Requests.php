@@ -15,5 +15,5 @@ class Request extends Model
      * Variable yang mendaftarkan atribut yang bisa di isi.
      * @var array
      */
-    protected $fillable = ['', '', ''];   
+    protected $fillable = ['case_study', 'article_type', 'article_category_id','author','is_active','created_by','updated_by'];   
 }
