@@ -22,7 +22,7 @@ class CreateMsUserTable extends Migration
             $table->string('email')->unique();
             $table->boolean('approved')->default(false);
             $table->rememberToken();
-            $table->unsignedBigInteger('department_id');
+            $table->unsignedBigInteger('department_id')->nullable();
             $table->foreign('department_id')
             ->references('department_id')->on('ms_department')
             ->onDelete('cascade')->onUpdate('cascade');

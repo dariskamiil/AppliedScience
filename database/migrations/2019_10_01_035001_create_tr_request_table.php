@@ -16,14 +16,14 @@ class CreateTrRequestTable extends Migration
         schema::create('tr_request', function (Blueprint $table)
         {
         $table->bigIncrements('request_id');
-        $table->text('case_study');
-        $table->enum('article_type', ['general', 'confidential']);
+        $table->text('case_study')->nullable();
+        $table->enum('article_type', ['general', 'credential']);
         $table->unsignedBigInteger('article_category_id');
         $table->foreign('article_category_id')
             ->references('article_category_id')->on('ms_article_category');
         $table->unsignedBigInteger('author');
-        // $table->foreign('author')
-        //     ->references('id')->on('ms_user')->onDelete('cascade')->onUpdate('cascade');
+        $table->foreign('author')
+             ->references('id')->on('ms_user')->onDelete('cascade')->onUpdate('cascade');
         
         $table->boolean('is_active')->default(true);
         $table->timestamps();
