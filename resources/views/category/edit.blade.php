@@ -8,18 +8,18 @@
     <div class="section-header-back">
       <a href="/category" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
     </div>
-    <h1>Edit Category</h1>
+    <h1>Edit Article Category</h1>
     <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="/home">Home</a></div>
       <div class="breadcrumb-item"><a href="/Category">Category Master</a></div>
-      <div class="breadcrumb-item">Edit Category</div>
+      <div class="breadcrumb-item">Edit Article Category</div>
     </div>
   </div>
 
   <div class="section-body">
     <div class="card">
       <div class="card-header bg-warning"> 
-        <h4 class="text-white">Edit Category - {{ $categorys->article_category_name }}</h4>
+        <h4 class="text-white">Edit Article Category - {{ $categorys->article_category_name }}</h4>
       </div>
       <div class="form-group card-body">
         <div class="form-group">

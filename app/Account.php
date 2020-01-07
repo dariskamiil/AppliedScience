@@ -25,8 +25,8 @@ class Account extends Model
     {
         return $this->belongsTo(Department::class, 'department_id');
     }
-    public function user()
+    public function updatedBy()
     {
-        return $this->belongsTo(user::class, 'department_id');
+        return $this->belongsTo(user::class, 'updated_by');
     }
 }   

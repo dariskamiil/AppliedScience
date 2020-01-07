@@ -1,40 +1,19 @@
 @extends('Dashboard.admin')
 
 @section('title')
-<title>Category Master</title>
+<title> Article Category Master</title>
 @endsection
 
 @section('content')
 <section class="section">
           <div class="section-header">
-            <h1>Category Master</h1>
+            <h1>Article Category</h1>
             <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="/home">Home</a></div>
-              <div class="breadcrumb-item">Category Master</div>
+              <div class="breadcrumb-item">Article Category</div>
             </div>
           </div>
           <div class="section-body">
-            <h2 class="section-title">Posts</h2>
-            <p class="section-lead">
-              You can manage all posts, such as editing, deleting and more.
-            </p>
-
-            <div class="row">
-              <div class="col-12">
-                <div class="card mb-0">
-                  <div class="card-body">
-                    <form class="form-inline">
-                    <ul class="nav nav-pills">
-                      <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('category.index') }}">All <span class="badge badge-white"></span></a>
-                      </li>
-                    </ul>
-                    </form>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
             <div class="row mt-4">
               <div class="col-12">
                 <div class="card">
@@ -42,12 +21,12 @@
                     <div class="col-8">
                         <a href="/category/create" class="btn btn-info">Add New</a>
                     </div>
-                    <form class="col-3">
+                    <form class="col-4">
                       <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-append ">
-                        &nbsp;
-                        <button class="btn btn-infp"><i class="fas fa-search"></i></button>
+                        <div class="input-group-append">
+                          <input type="text" class="form-control" placeholder="Search">
+                          &nbsp;
+                          <button class="btn btn-info"><i class="fas fa-search"></i></button>
                         </div>
                       </div>
                     </form>
@@ -61,9 +40,9 @@
                       <table class="table table-hover">
                         <thead>
                         <th class="">#</th>
-                          <th class="col-4">Name</th>
-                          <th class="col-4">Status</th>
-                          <th class="col-3">Action</th>
+                          <th >Name</th>
+                          <th >Status</th>
+                          <th ">Action</th>
                         </thead>
                     @foreach ($categorys as $cats)
                         <tr>
@@ -77,7 +56,8 @@
                             @endif
                           </td>
                           <td class="text-white -all">
-                            <a href="{{ route('category.edit', $cats->article_category_id) }}" class="btn btn-icon icon-left col-5 btn-warning"> <i class="ion ion-md-create"></i>&nbsp;Edit</a> &nbsp;
+                            <a href="{{ route('category.edit', $cats->article_category_id) }}" 
+                            class="btn btn-icon icon-left col-5 btn-warning"><i class="ion ion-md-create"></i>&nbsp;Edit</a> &nbsp;
                           </td>
                         </tr>
                     @endforeach

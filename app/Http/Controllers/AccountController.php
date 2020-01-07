@@ -40,4 +40,10 @@ class AccountController extends Controller
         ]);
         return redirect(route('account.index'));   
     }
+    public function search(Request $request)
+    {
+        
+        $accounts = account::where('department_name', 'LIKE', '%accsearch%')->get();
+        return view('account.index', compact('accounts'));
+    }
 }

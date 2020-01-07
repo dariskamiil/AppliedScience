@@ -29,3 +29,5 @@ class MsUsersSeeder extends Seeder
         user::insert($user);
     }
 }
+
+//password = "password"

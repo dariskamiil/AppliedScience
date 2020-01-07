@@ -39,3 +39,6 @@ Route::resource('/account', 'AccountController')->except([
 Route::resource('/request', 'RequestController')->except([
     'show'
 ]);
+Route::resource('/profile', 'ProfileController')->except([
+    'show'
+]);

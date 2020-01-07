@@ -31,19 +31,16 @@
         <div class="navbar-nav">
           <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
         </div>
-        
         <form class="form-inline ml-auto">
-          <ul class="navbar-nav">
-            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
-          </ul>
+          
           <div class="search-element">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="300">
-            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            <button class="btn" type="submit" style="height:44px;"><i class="fas fa-search"></i></button>
             <div class="search-backdrop"></div>
-            <div class="search-result" data-width="345">
-              <div class="search-header">
-                Histories
-              </div>
+            <div class="search-result">
+              <div class="search-header"> Histories </div>
+              <div class="search-header"> Result </div>
+              <div class="search-header"> Projects </div>
             </div>
           </div>
         </form>
@@ -56,7 +53,6 @@
                 </div>
               </div>
               <div class="dropdown-list-content dropdown-list-message">
-                
               </div>
               <div class="dropdown-footer text-center">
                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
@@ -130,7 +126,7 @@
       </div>
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2019
+          Copyright &copy; Dapur Digital <div class="bullet"></div> 2019
         </div>
         <div class="footer-right">
           2.3.0

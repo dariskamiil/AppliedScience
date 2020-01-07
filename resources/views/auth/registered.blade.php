@@ -34,7 +34,7 @@
                     </h5>
                 </div>
             </div>
-            <a href="/login" class="btn btn-primary">Back to Home</a>
+            <a href="/home" class="btn btn-primary">Back</a>
           </div>
         </div>
         <div class="simple-footer mt-5">

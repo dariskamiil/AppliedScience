@@ -51,7 +51,6 @@
                         @endif
                       </div>
                     </div>
-                    
                     <div class="form-group col-6">
                       <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                         <label for="username">Username</label>
@@ -65,26 +64,26 @@
                     </div>
                   </div>
 
-                    <div class="row">
-                      <div class="form-group col-6">
-                        <label class="control-label">Role</label>
-                          <select class="form-control selectric" name="role" required>
-                            <option value="" selected disabled>Please select</option>
-                            <option value="user">User</option>
-                            <option value="admin">Admin</option>
-                          </select>
-                      </div>
-                      <div class="form-group col-6">
-                        <label class="control-label"> Department </label>
-                            <select name="department_id" id="department_id" required
-                              class="form-control {{ $errors->has ('department_id') ? 'is - invalid':''}}">
-                              <option value="">Please select</option>
-                                @foreach ($departments as $deps)
-                                  <option value="{{ $deps->department_id }}">{{ ucfirst($deps->department_name) }}</option>
-                                @endforeach
-                            </select>   
-                      </div>
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label class="control-label">Role</label>
+                        <select class="form-control selectric" name="role" required>
+                          <option value="" selected disabled>Please select</option>
+                          <option value="user">User</option>
+                          <option value="admin">Admin</option>
+                        </select>
                     </div>
+                    <div class="form-group col-6">
+                      <label class="control-label"> Department </label>
+                          <select name="department_id" id="department_id" required
+                            class="form-control {{ $errors->has ('department_id') ? 'is - invalid':''}}">
+                            <option value="">Please select</option>
+                              @foreach ($departments as $deps)
+                                <option value="{{ $deps->department_id }}">{{ ucfirst($deps->department_name) }}</option>
+                              @endforeach
+                          </select>   
+                    </div>
+                  </div>
 
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                       <label for="email">Email</label>

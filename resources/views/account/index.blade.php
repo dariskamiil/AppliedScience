@@ -14,33 +14,16 @@
             </div>
           </div>
           <div class="section-body">
-            <div class="row">
-              <div class="col-12">
-                <div class="card mb-0">
-                  <div class="card-body">
-                    <form class="form-inline">
-                    <ul class="nav nav-pills">
-                      <li class="nav-item">
-                        <a class="nav-link active" href="#">All <span class="badge badge-white"></span></a>
-                      </li>
-                    </ul>
-                    </form>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
             <div class="row mt-4">
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    
-                    <form class="col-3">
+                    <form class="col-4"  method="GET">
                       <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-append ">
-                        &nbsp;
-                        <button class="btn btn-infp"><i class="fas fa-search"></i></button>
+                        <div class="input-group-append">
+                        <input name="accsearch" type="text" class="form-control" placeholder="Search">
+                          &nbsp;
+                        <button class="btn btn-info"><i class="fas fa-search"></i></button>
                         </div>
                       </div>
                     </form>
@@ -50,21 +33,21 @@
                     <div class="clearfix mb-3"></div>
                     <div class="table-responsive">
                     {{ csrf_field() }}
-                  
                       <table class="table table-hover">
                         <thead>
-                          <th class="col-1" >#</th>
-                          <th class="col-3" >Name</th>
-                          <th class="col-2">Role</th>
-                          <th class="col-1">Department</th>
-                          <th class="col-2">Approval</th>
-                          <th class="col-3">Action</th>
-                          
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Username</th>
+                          <th>Role</th>
+                          <th>Department</th>
+                          <th>Approval</th>
+                          <th>Action</th>
                         </thead>
                     @foreach ($accounts as $accs)
                         <tr>
                         <td>{{ ++$no }}</td>
                           <td>{{ $accs->name }}</td>
+                          <td>{{ $accs->username }}</td>
                           <td>{{ ucfirst($accs->role )}}</td>
                           <td>{{ ucfirst($accs->department['department_name'] )}}</td>
                           <td>
@@ -75,8 +58,7 @@
                             @endif
                           </td>
                           <td class="text-white -all">
-                            <a href="{{ route('account.edit', $accs->id) }}" class="btn btn-icon icon-left col-5 btn-warning"> <i class="ion ion-md-create"></i>&nbsp;Edit</a> &nbsp;
-                            <a href="#" class="btn btn-icon icon-left col-5 btn-danger"><i class="ion ion-ios-trash"></i>&nbsp;Delete</a>
+                            <a href="{{ route('account.edit', $accs->id) }}" class="btn btn-icon icon-left btn-warning"><i class="ion ion-md-create">&nbsp; Edit</i></a> 
                           </td>
                         </tr>
                     @endforeach

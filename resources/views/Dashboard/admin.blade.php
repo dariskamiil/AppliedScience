@@ -36,22 +36,14 @@
             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
             <div class="search-backdrop"></div>
             <div class="search-result">
-              <div class="search-header">
-                Histories
-              </div>
-              
-              <div class="search-header">
-                Result
-              </div>
-              
-              <div class="search-header">
-                Projects
-              </div>
+              <div class="search-header"> Histories </div>
+              <div class="search-header"> Result </div>
+              <div class="search-header"> Projects </div>
             </div>
           </div>
-
-<!-- navbar -->
         </form>
+<!-- navbar -->
+        
         <ul class="navbar-nav navbar-right">
           <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle"><i class="far fa-envelope"></i></a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
@@ -85,11 +77,10 @@
           </li>
           <li class="dropdown">
           <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            
             <div class="d-sm-none d-lg-inline-block"> {{ Auth::user()->name }} </div>
           </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="/profile" class="dropdown-item has-icon">
+                <a href="{{ route('profile.edit', Auth::user()->id) }}" class="dropdown-item has-icon">{{ method_field('PATCH') }}
                     <i class="far fa-user"></i> Profile
                 </a>
                 <a href="features-activities.html" class="dropdown-item has-icon">
@@ -164,9 +155,7 @@
 
       <!-- Main Content -->
       <div class="main-content" style="min-height: 537px;">
-        
         @yield('content')
-        
       </div>  
       <footer class="main-footer">
         <div class="footer-left">
@@ -184,7 +173,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="/js/stisla.js"></script>
+  <script src=" /js/stisla.js "></script>
 
   <!-- JS Libraies -->
 

@@ -14,22 +14,7 @@
             </div>
           </div>
           <div class="section-body">
-            <div class="row">
-              <div class="col-12">
-                <div class="card mb-0">
-                  <div class="card-body">
-                    <form class="form-inline">
-                      <ul class="nav nav-pills">
-                        <li class="nav-item">
-                          <a class="nav-link active" href="{{ route('department.index') }}">
-                          All <span class="badge badge-white"></span></a>
-                        </li>
-                      </ul>
-                    </form>
-                  </div>
-                </div>
-              </div>
-             </div>
+            
           </div>
 
             <div class="row mt-4">
@@ -39,14 +24,12 @@
                     <div class="col-8">
                         <a href="/department/create" class="btn btn-info">Add New</a>
                     </div>
-                    <form class="col-3">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-append ">
-                        &nbsp;
-                        <button class="btn btn-infp"><i class="fas fa-search"></i></button>
-                        </div>
-                      </div>
+                    <form class="col-4">
+                          <div class="input-group-append">
+                            <input type="text" class="form-control" placeholder="Search">
+                              &nbsp;
+                            <button class="btn btn-info"><i class="fas fa-search"></i></button>
+                          </div>
                     </form>
                   </div>
                     
@@ -76,7 +59,7 @@
                             @endif
                           </td>
                           <td>
-                            {{ $deps->updated_at->format('d M Y') }}
+                            {{ $deps->updated_at->format('d F Y') }}
                           </td>
                           <td class="text-white -all">
                             <a href="{{ route('department.edit', $deps->department_id) }}" class="btn btn-icon icon-left col-5 btn-warning"> <i class="ion ion-md-create"></i>&nbsp;Edit</a> &nbsp;

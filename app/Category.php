@@ -19,7 +19,7 @@ class Category extends Model
      * Variable yang mendaftarkan atribut yang bisa di isi.
      * @var array
      */
-    protected $fillable = ['article_category_name','created_by','updated_by'];
+    protected $fillable = ['article_category_name', 'created_by', 'updated_by'];
     /**
      * Variable yang menentukan nama relasi table.
      */

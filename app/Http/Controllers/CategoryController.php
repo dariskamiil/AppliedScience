@@ -25,14 +25,12 @@ class CategoryController extends Controller
         request()->validate([
             'article_category_name' => 'required|string',
         ]);
-        $categorys = category::create($request->all());
-        return redirect(route('category.index'));
         $categorys = category::create([
             'article_category_name' => $request->article_category_name,
             'created_by' => Auth::user()->id,
             'updated_by' => Auth::user()->id,
         ]);
-        return redirect(route('department.index'));
+        return redirect(route('category.index'));
     }
     public function edit($article_category_id)
     {

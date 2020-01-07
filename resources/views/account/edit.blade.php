@@ -94,10 +94,9 @@
             <button type="submit" class="btn btn-success btn-lg btn-block "> Save </button>
           </div>
         </div>
-
-        </form>
-        </div>
-      </div>
+      </form>
+    </div>
+  </div>
       <div class="card">
         <div class="form-group card-body">
           <div class="row">
@@ -105,7 +104,7 @@
               <p>Created at <br> {{ $accounts->created_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->created_at->format('H:i:s') }}</p>
             </div>
             <div class="col-4">
-              <p>Updated by<br> {{ $accounts->user['name'] }}</p>
+              <p>Updated by<br> {{ $accounts->updatedBy['name'] }}</p>
             </div>
             <div class="col-4">
               <p>Last update <br> {{ $accounts->updated_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->updated_at->format('H:i:s') }}</p>

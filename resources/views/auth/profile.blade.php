@@ -1,4 +1,4 @@
-  @extends('dashboard.admin')
+@extends('dashboard.admin')
 
 @section('title')
 <title>Profile</title>
@@ -6,90 +6,81 @@
 
 @section('content')
 <section class="section">
-          <div class="section-header">
-            <h1>Profile</h1>
-            <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-              <div class="breadcrumb-item">Profile</div>
+  <div class="section-header">
+    <div class="section-header-back">
+      <a href="/home" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+    </div>
+    <h1>Profile</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item active"><a href="/home">Home</a></div>
+      <div class="breadcrumb-item">Profile</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <div class="col-12 col-md-6 col-lg-6">
+    <div class="card">
+      <div class="card-header bg-success"> 
+        <h4 class="text-white">Edit </h4>
+      </div>
+      <div class="form-group card-body">
+        <div class="form-group">
+        <form method="post" action="{{ route('profile.update', $accounts->id) }}">
+          {{ csrf_field() }}
+          {{ method_field('PATCH') }}
+          <div class="row">
+              <div class="col-6" >
+                <label for="name" >Name</label>
+                <input id="name" type="text" name="name"  value="{{ $accounts->name }}"
+                class="form-control {{ $errors->has('name') ? 'is-invalid':'' }}"required autofocus>
+              </div>
+              <div class="col-6" >
+                <label for="username">Username</label>
+                <input id="username" type="text" name="username"  value="{{ $accounts->username }}"
+                class="form-control {{ $errors->has('username') ? 'is-invalid':'' }}"required autofocus>
+              </div>
+          </div>
+        <br>
+          <div class="row">
+              <div class="col-12" >
+                <label for="email">Email</label>
+                <input id="email" type="text" name="email"  value="{{ $accounts->email }}"
+                class="form-control {{ $errors->has('email') ? 'is-invalid':'' }}"required autofocus>
+              </div>
+            </div>    
+          </div>
+        <br>
+            <button type="submit" class="btn btn-success btn-lg btn-block "> Save </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<div class="card">
+  <div class="form-group card-body">
+    <h3>{{ $accounts->name }}</h3>
+    <h4>{{ ucfirst($accounts->role) }} &nbsp;-&nbsp; {{ $accounts->department['department_name'] }}</h4>
+    <br>
+    
+  </div>
+</div>
+      <div class="card">
+        <div class="form-group card-body">
+          <div class="row">
+            <div class="col-4">
+              <p>Created at <br> {{ $accounts->created_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->created_at->format('H:i:s') }}</p>
+            </div>
+            <div class="col-4">
+              <p>Updated by<br> {{ $accounts->updatedBy['name'] }}</p>
+            </div>
+            <div class="col-4">
+              <p>Last update <br> {{ $accounts->updated_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->updated_at->format('H:i:s') }}</p>
             </div>
           </div>
-          <div class="section-body">
-            <div class="row mt-sm-4">
-              <div class="col-12 col-md-12 col-lg-5">
-                <div class="card profile-widget">
-                  <div class="profile-widget-header">
-                    <div class="profile-widget-items">
-                      <div class="profile-widget-item">
-                        <div class="profile-widget-item-label">Posts</div>
-                        <div class="profile-widget-item-value"><div class="text-muted d-inline font-weight-normal">0</div></div>
-                      </div>
-                      <div class="profile-widget-item">
-                        <div class="profile-widget-item-label">Followers</div>
-                        <div class="profile-widget-item-value"><div class="text-muted d-inline font-weight-normal">0</div></div>
-                      </div>
-                      <div class="profile-widget-item">
-                        <div class="profile-widget-item-label">Following</div>
-                        <div class="profile-widget-item-value"><div class="text-muted d-inline font-weight-normal">0</div></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="profile-widget-description">
-                    <div class="profile-widget-name"><h3>{{ Auth::user()->name }}</h3></div>
-                    
-                    <h4>{{ ucfirst(Auth::user()->role) }}</h4>
-                  </div>
-                  <div class="card-footer text-center">
-                    <div class="text-muted d-inline font-weight-normal">Footer</div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-12 col-md-12 col-lg-7">
-                <div class="card">
-                  <form method="post" class="needs-validation" novalidate="">
-                    <div class="card-header">
-                      <h4>Edit Profile</h4>
-                    </div>
-                    <div class="card-body">
-                        
-                          <div class="form-group">
-                            <label class="control-label">Name</label>
-                            <input type="text" class="form-control" value="" required="">
-                            <div class="invalid-feedback">
-                              Please fill in the first name
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label class="control-label">Username</label>
-                            <input type="text" class="form-control" value="" required="">
-                            <div class="invalid-feedback">
-                              Please fill in the first name
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label class="control-label">Email</label>
-                            <input type="email" class="form-control" value="" required="">
-                            <div class="invalid-feedback">
-                              Please fill in the email
-                            </div>
-                          </div>
-                          
-                          <div class="form-group">
-                            <label class="control-label"> Department </label>
-                            <select name="department_id" id="department_id" required class="form-control">
-                              <option value=""></option>
-                            </select>   
-                          </div>
-                    </div>
-                    <div class="card-footer text-right">
-                      <button class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
 @stop

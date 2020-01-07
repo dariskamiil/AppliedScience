@@ -22,6 +22,24 @@
                         <input type="text" class="form-control">
                       </div>
                     </div>
+                    <div class="form-group row mb-4" >
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Type</label>
+                      <div class="col-sm-12 col-md-7">
+                        <select name="article_type" class="form-control selectric" onchange="yesnoCheck(this);">
+                          <option value="" selected disabled>Please Select</option>
+                          <option value="public">Public</option>
+                          <option value="credential">Credential</option>   
+                        </select>
+                      </div>
+                    </div>
+                    <div id="ifYes" style="display: none;">
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">...</label>
+                        <div class="col-sm-12 col-md-7">
+                          <textarea class="summernote-simple form-control" style="width:100%"></textarea>
+                        </div>
+                      </div>
+                    </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
                       <div class="col-sm-12 col-md-7">
@@ -35,26 +53,21 @@
                       </div>
                     </div>
                     <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Type</label>
-                      <div class="col-sm-12 col-md-7">
-                        <select name="article_type" class="form-control selectric">
-                          <option value="" selected disabled>Please select</option>
-                          <option value="credentials">Credentials</option>
-                          <option value="public">Public</option>      
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Case Study</label>
                       <div class="col-sm-12 col-md-7">
                         <textarea class="summernote-simple form-control" style="width:100%"></textarea>
                       </div>
                     </div>
-                    
                     <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">author</label>
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Author</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Date Range Picker</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control daterange-cus">
                       </div>
                     </div>
                     <div class="form-group text-center row mb-4">
@@ -69,3 +82,13 @@
             </div>
           </div>
 @endsection
+
+<script type="text/javascript">
+  function yesnoCheck(that) {
+      if (that.value == "credential") {
+          document.getElementById("ifYes").style.display = "block";
+      } else {
+          document.getElementById("ifYes").style.display = "none";
+      }
+  }
+  </script>
