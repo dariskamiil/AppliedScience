@@ -66,29 +66,68 @@
               @endif
             </select>
           </div>
+          <div class="col-6">
+            <table>
+              <tr>
+              <th>
+                <label>Approval</label>
+              </th>
+              <th>&nbsp;&nbsp;&nbsp; </th>
+              <th>
+                @if ( $accounts->approved == 1 )
+                <div class="radio">
+                  <label class="radio-inline">
+                    <input type="radio" name="approved" value="1" checked><div class="badge badge-primary">Approved</div>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="approved" value="0"><div class="badge badge-danger">Unapproved</div>
+                  </label>
+                </div>
+                @elseif( $accounts->approved == 0 )
+                <div class="radio">
+                  <label class="radio-inline">
+                    <input type="radio" name="approved" value="1"><div class="badge badge-primary">Approved</div>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="approved" value="0" checked><div class="badge badge-danger">Not-approved</div>
+                  </label>
+                </div>
+                @endif
+              </th>
+            </tr>
+              <tr>
+                <td><label>Status</label></td>
+                <td></td>
+                <td>
+                  @if ( $accounts->is_active == 1 )
+                  <div class="radio">
+                    <label class="radio-inline">
+                      <input type="radio" name="is_active" value="1" checked><div class="badge badge-primary">&nbsp;Actived&nbsp;</div>
+                    </label>
+                    &nbsp;
+                    <label class="radio-inline">
+                      <input type="radio" name="is_active" value="0"><div class="badge badge-danger">&nbsp;&nbsp;Inactived&nbsp;&nbsp;</div>
+                    </label>
+                  </div>
+                  @elseif( $accounts->is_active == 0 )
+                  <div class="radio">
+                    <label class="radio-inline">
+                      <input type="radio" name="is_active" value="1"><div class="badge badge-primary">Actived</div>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="is_active" value="0" checked><div class="badge badge-danger">Inactived</div>
+                    </label>
+                  </div>
+                  @endif
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
                   <br>
-        <label>Approval</label>
-          @if ( $accounts->approved == 1 )
-          <div class="radio">
-            <label class="radio-inline">
-              <input type="radio" name="approved" value="1" checked><div class="badge badge-primary">Approved</div>
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="approved" value="0"><div class="badge badge-danger">Unapproved</div>
-            </label>
-          </div>
-          @elseif( $accounts->approved == 0 )
-          <div class="radio">
-            <label class="radio-inline">
-              <input type="radio" name="approved" value="1"><div class="badge badge-primary">Approved</div>
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="approved" value="0" checked><div class="badge badge-danger">Not-approved</div>
-            </label>
-          </div>
-          @endif
-      </div>
+                  
+                  </div>
+      
         <br>
           <div class="form-group float-right col-2">
             <button type="submit" class="btn btn-success btn-lg btn-block "> Save </button>

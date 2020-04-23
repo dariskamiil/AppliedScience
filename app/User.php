@@ -40,4 +40,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(category::class);
     }
+    public function requests()
+    {
+        return $this->hasMany(requests::class);
+    }
 }

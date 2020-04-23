@@ -16,4 +16,19 @@ class Request extends Model
      * @var array
      */
     protected $fillable = ['case_study', 'article_type', 'article_category_id','author','is_active','created_by','updated_by'];   
+    /**
+     * Variable yang menentukan relasi table.
+     */
+    public function createdBy()
+    {
+        return $this->belongsTo(user::class, 'created_by');
+    }
+    public function updatedBy()
+    {
+        return $this->belongsTo(user::class, 'updated_by');
+    }
+    public function author()
+    {
+        return $this->belongsTo(user::class, 'author');
+    }
 }

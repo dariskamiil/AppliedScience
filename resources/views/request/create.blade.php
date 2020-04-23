@@ -36,7 +36,7 @@
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">...</label>
                         <div class="col-sm-12 col-md-7">
-                          <textarea class="summernote-simple form-control" style="width:100%"></textarea>
+                          <textarea class="form-control" style="width:100%" placeholder="tag someone here .." ></textarea>
                         </div>
                       </div>
                     </div>
@@ -61,13 +61,21 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Author</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control">
+                        <select name="author" 
+                        class="form-control{{ $errors->has ('author') ? 'is - invalid':''}} selectric">
+                          <option value="" selected disabled>Please select</option>
+                          @foreach ($users as $user)
+                            <option value="{{ $user->id }}">{{ ucWords($user->name) }}</option>
+                          @endforeach
+                        </select>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label>Date Range Picker</label>
-                      <div class="input-group">
-                        <input type="text" class="form-control daterange-cus">
+                    <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Period Recomendations</label>
+                      <div class="col-sm-12 col-md-7">
+                        <div class="input-group">
+                          <input type="text" class="form-control daterange-cus">
+                        </div>
                       </div>
                     </div>
                     <div class="form-group text-center row mb-4">

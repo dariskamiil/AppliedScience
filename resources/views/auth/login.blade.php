@@ -98,7 +98,7 @@
             <div class="text-light p-5 pb-2">
               <div class="mb-5 pb-3">
                 <h1 class="mb-2 display-4 font-weight-bold">Welcome</h1>
-                <h5 class="font-weight-normal text-muted-transparent">to Applied Science Application</h5>
+                <h5 class="font-weight-normal text-muted-transparent">to Article Applied Science Application</h5>
               </div>
               Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
             </div>
