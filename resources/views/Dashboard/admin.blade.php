@@ -176,6 +176,8 @@
   <script src=" /js/stisla.js "></script>
 
   <!-- JS Libraies -->
+  <!-- SweetAlerts -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- Template JS File -->
   <script src="/js/scripts.js"></script>

@@ -59,7 +59,7 @@
 <div class="card">
   <div class="form-group card-body">
     <h3>{{ $accounts->name }}</h3>
-    <h4>{{ ucfirst($accounts->role) }} &nbsp;-&nbsp; {{ $accounts->department['department_name'] }}</h4>
+    <h4></h4>
     <br>
     
   </div>
@@ -71,7 +71,7 @@
               <p>Created at <br> {{ $accounts->created_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->created_at->format('H:i:s') }}</p>
             </div>
             <div class="col-4">
-              <p>Updated by<br> {{ $accounts->updatedBy['name'] }}</p>
+              <p>Updated by<br> </p>
             </div>
             <div class="col-4">
               <p>Last update <br> {{ $accounts->updated_at->format('D, d M Y') }} <br> on &nbsp{{ $accounts->updated_at->format('H:i:s') }}</p>
@@ -80,7 +80,33 @@
         </div>
       </div>
     </div>
-    
+    <body>
+      <button onclick="normal()">Logout Alert</button>
+      <button onclick="sweet()">Sweet Alert</button>
+      <script>
+      function normal () {
+        swal({
+          title: "Are you sure?",
+          text: "Once deleted, you will not be able to recover this imaginary file!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willLogout) => {
+          if (willLogout) {
+            swal("Poof! Your imaginary file has been deleted!", {
+              icon: "success",
+            });
+          } else {
+            swal("Your imaginary file is safe!");
+          }
+        });
+      }
+      function sweet (){
+      swal("Good job!", "You clicked the button!", "success");
+      }
+      </script>
+      </body>
   </div>
 </section>
 @stop
